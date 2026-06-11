@@ -14,8 +14,6 @@
 html{scroll-behavior:smooth}
 body{font-family:'Jost',sans-serif;background:#f5f3ee;color:#1a2540;min-height:100vh}
 .page{max-width:700px;margin:0 auto;background:#fff;box-shadow:0 0 60px rgba(0,0,0,0.08)}
-
-/* HERO */
 .hero{background:#1a2540;padding:3.5rem 2.5rem 2.5rem;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#b8932a,#e8c96a,#b8932a)}
 .hero-tag{font-size:10px;letter-spacing:4px;color:#b8932a;text-transform:uppercase;margin-bottom:1rem}
@@ -25,26 +23,18 @@ body{font-family:'Jost',sans-serif;background:#f5f3ee;color:#1a2540;min-height:1
 .hero-badges{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem}
 .badge{font-size:10px;color:rgba(255,255,255,0.5);letter-spacing:1.5px;display:flex;align-items:center;gap:6px}
 .badge::before{content:'';width:4px;height:4px;background:#b8932a;border-radius:50%;flex-shrink:0}
-
-/* WHATSAPP BUTTON */
 .wa-btn{display:inline-flex;align-items:center;gap:10px;padding:13px 32px;background:#25D366;color:#fff;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:all 0.2s;border:none;cursor:pointer}
 .wa-btn:hover{background:#1ebe5d;transform:translateY(-1px)}
 .wa-btn i{font-size:18px}
-.wa-btn-dark{background:transparent;border:1px solid #25D366;color:#25D366}
-.wa-btn-dark:hover{background:#25D366;color:#fff;transform:translateY(-1px)}
-
-/* SECTION */
 .sec{padding:2.5rem 2.5rem 2rem}
 .sec-label{font-size:10px;letter-spacing:3px;color:#b8932a;text-transform:uppercase;margin-bottom:0.4rem}
 .sec-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;color:#1a2540;margin-bottom:0.75rem}
 .gold-line{width:32px;height:1px;background:#b8932a;margin-bottom:1.75rem}
-
-/* 4-COLUMN GRID */
 .items-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#e8e4d9}
 .catalog-item{background:#fff;cursor:pointer;transition:background 0.15s;display:flex;flex-direction:column}
 .catalog-item:hover{background:#faf8f3}
-.item-img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:#f5f3ee}
-.item-img-placeholder{width:100%;aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f5f3ee;color:#ccc;gap:6px;cursor:pointer;transition:background 0.15s;position:relative}
+.item-img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.item-img-placeholder{width:100%;aspect-ratio:1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f5f3ee;color:#ccc;gap:6px;cursor:pointer;transition:background 0.15s}
 .item-img-placeholder:hover{background:#ece9e0}
 .item-img-placeholder i{font-size:24px;color:#d4b870}
 .item-img-placeholder span{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:#bbb}
@@ -54,12 +44,10 @@ body{font-family:'Jost',sans-serif;background:#f5f3ee;color:#1a2540;min-height:1
 .item-desc{font-size:11px;color:#999;line-height:1.5;flex:1}
 .item-cat{display:inline-block;margin-top:8px;font-size:8px;letter-spacing:1.5px;color:#b8932a;background:#faf6ee;padding:2px 7px;border:0.5px solid #e8c96a;text-transform:uppercase}
 .empty-state{background:#faf8f4;padding:3rem;text-align:center;font-size:13px;color:#bbb;font-style:italic;grid-column:1/-1}
-
-/* MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:500;align-items:center;justify-content:center;padding:1rem}
 .modal-overlay.open{display:flex}
 .modal{background:#fff;max-width:420px;width:100%;position:relative}
-.modal-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:#f5f3ee}
+.modal-img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
 .modal-img-empty{width:100%;aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#f5f3ee;gap:8px;cursor:pointer}
 .modal-img-empty i{font-size:32px;color:#d4b870}
 .modal-img-empty span{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#bbb}
@@ -70,21 +58,14 @@ body{font-family:'Jost',sans-serif;background:#f5f3ee;color:#1a2540;min-height:1
 .modal-wa{display:flex;align-items:center;gap:8px;padding:11px 20px;background:#25D366;color:#fff;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:all 0.2s;width:100%;justify-content:center;border:none;cursor:pointer}
 .modal-wa:hover{background:#1ebe5d}
 .modal-close{position:absolute;top:12px;right:12px;background:#1a2540;border:none;color:#fff;width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:16px;z-index:10}
-.upload-hint{font-size:10px;color:#bbb;text-align:center;margin-top:8px;letter-spacing:0.5px}
 input[type=file]{display:none}
-
-/* STATS */
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#e8e4d9;margin:0 2.5rem 2rem}
 .stat{background:#fff;padding:1.25rem 1rem;text-align:center}
 .stat-n{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#1a2540}
 .stat-l{font-size:9px;letter-spacing:2px;color:#aaa;text-transform:uppercase;margin-top:4px}
-
-/* CTA */
 .cta-block{background:#1a2540;padding:2.5rem;text-align:center}
 .cta-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;color:#fff;margin-bottom:0.4rem}
 .cta-sub{font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:1.5rem;letter-spacing:0.5px}
-
-/* FOOTER */
 .footer{padding:1.5rem 2.5rem;border-top:0.5px solid #ece9e0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
 .footer-logo{font-family:'Cormorant Garamond',serif;font-size:16px;color:#1a2540}
 .footer-info{font-size:11px;color:#bbb;letter-spacing:0.5px}
@@ -95,6 +76,19 @@ input[type=file]{display:none}
 .admin-panel{display:none;position:fixed;bottom:76px;right:24px;width:340px;background:#fff;border:0.5px solid #e8e4d9;box-shadow:0 12px 40px rgba(0,0,0,0.13);z-index:199;padding:1.5rem;max-height:75vh;overflow-y:auto}
 .admin-panel.open{display:block}
 .admin-panel-title{font-family:'Cormorant Garamond',serif;font-size:20px;color:#1a2540;margin-bottom:1rem;padding-bottom:0.75rem;border-bottom:0.5px solid #ece9e0}
+
+/* LOGIN */
+.login-area{margin-bottom:1rem}
+.login-area p{font-size:10px;letter-spacing:2px;color:#b8932a;text-transform:uppercase;margin-bottom:0.6rem}
+.login-row{display:flex;gap:8px}
+.login-row input{flex:1;padding:9px 11px;border:0.5px solid #ddd;font-family:'Jost',sans-serif;font-size:12px;color:#1a2540;outline:none;border-radius:0}
+.login-row input:focus{border-color:#b8932a}
+.login-btn{padding:9px 14px;background:#1a2540;color:#b8932a;border:none;font-family:'Jost',sans-serif;font-size:11px;cursor:pointer;white-space:nowrap;transition:all 0.2s}
+.login-btn:hover{background:#b8932a;color:#fff}
+.login-error{font-size:11px;color:#c0392b;margin-top:6px;display:none}
+.logout-btn{font-size:10px;letter-spacing:1.5px;color:#aaa;text-transform:uppercase;background:none;border:none;cursor:pointer;padding:0;margin-bottom:1rem;display:block}
+.logout-btn:hover{color:#c0392b}
+
 .admin-list{margin-bottom:1.25rem}
 .admin-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:0.5px solid #f5f2ec;font-size:12px;color:#444;gap:8px}
 .admin-row-name{font-weight:500;flex:1}
@@ -126,7 +120,6 @@ input[type=file]{display:none}
 </head>
 <body>
 <div class="page">
-  <!-- HERO -->
   <div class="hero">
     <p class="hero-tag">Locação de Materiais para Eventos</p>
     <h1 class="hero-title">Celebrar Eventos</h1>
@@ -142,7 +135,6 @@ input[type=file]{display:none}
     </a>
   </div>
 
-  <!-- CATALOG -->
   <div class="sec">
     <p class="sec-label">Nosso portfólio</p>
     <h2 class="sec-title">Materiais disponíveis para locação</h2>
@@ -150,14 +142,12 @@ input[type=file]{display:none}
     <div class="items-grid" id="itemsGrid"></div>
   </div>
 
-  <!-- STATS -->
   <div class="stats">
     <div class="stat"><p class="stat-n">+200</p><p class="stat-l">Eventos</p></div>
     <div class="stat"><p class="stat-n">48h</p><p class="stat-l">Antecedência</p></div>
     <div class="stat"><p class="stat-n">100%</p><p class="stat-l">Satisfação</p></div>
   </div>
 
-  <!-- CTA -->
   <div class="cta-block">
     <p class="cta-title">Pronta para o seu evento inesquecível?</p>
     <p class="cta-sub">Solicite um orçamento personalizado sem compromisso</p>
@@ -166,7 +156,6 @@ input[type=file]{display:none}
     </a>
   </div>
 
-  <!-- FOOTER -->
   <div class="footer">
     <span class="footer-logo">Celebrar Eventos</span>
     <span class="footer-info">📍 Teresina, PI &nbsp;·&nbsp; (86) 8814-5189</span>
@@ -189,44 +178,65 @@ input[type=file]{display:none}
   </div>
 </div>
 
-<!-- ADMIN -->
+<!-- ADMIN TOGGLE -->
 <button class="admin-toggle" onclick="toggleAdmin()">
   <i class="ti ti-settings"></i> Admin
 </button>
+
+<!-- ADMIN PANEL -->
 <div class="admin-panel" id="adminPanel">
-  <p class="admin-panel-title">Gerenciar Catálogo</p>
-  <div class="admin-list" id="adminList"></div>
-  <p class="form-section-label">Adicionar item</p>
-  <div class="field"><label>Nome do item</label><input id="fName" placeholder="Ex: Cadeira Tiffany"/></div>
-  <div class="field"><label>Descrição</label><textarea id="fDesc" placeholder="Ex: Cadeira elegante em branco e dourado"></textarea></div>
-  <div class="field"><label>Categoria</label>
-    <select id="fCat">
-      <option>Mobiliário</option><option>Têxteis</option><option>Decoração</option>
-      <option>Louças & Cristais</option><option>Estruturas</option><option>Iluminação</option><option>Outro</option>
-    </select>
+  <p class="admin-panel-title">Painel Admin</p>
+
+  <!-- LOGIN -->
+  <div id="loginArea" class="login-area">
+    <p>Senha de acesso</p>
+    <div class="login-row">
+      <input type="password" id="pwdInput" placeholder="Digite a senha" onkeydown="if(event.key==='Enter')doLogin()"/>
+      <button class="login-btn" onclick="doLogin()">Entrar</button>
+    </div>
+    <p class="login-error" id="loginError">Senha incorreta.</p>
   </div>
-  <div class="field"><label>Ícone</label>
-    <select id="fIcon">
-      <option value="ti-armchair">Cadeira / Poltrona</option>
-      <option value="ti-tools-kitchen-2">Toalha / Cozinha</option>
-      <option value="ti-confetti">Decoração / Balão</option>
-      <option value="ti-glass-full">Taça / Copo</option>
-      <option value="ti-building">Tenda / Estrutura</option>
-      <option value="ti-bulb">Iluminação</option>
-      <option value="ti-flower">Arranjo / Flores</option>
-      <option value="ti-table">Mesa</option>
-      <option value="ti-star">Destaque</option>
-      <option value="ti-gift">Presente / Kit</option>
-    </select>
+
+  <!-- CONTEÚDO ADMIN (só aparece após login) -->
+  <div id="adminContent" style="display:none">
+    <button class="logout-btn" onclick="doLogout()"><i class="ti ti-logout"></i> Sair</button>
+    <div class="admin-list" id="adminList"></div>
+    <p class="form-section-label">Adicionar item</p>
+    <div class="field"><label>Nome do item</label><input id="fName" placeholder="Ex: Cadeira Tiffany"/></div>
+    <div class="field"><label>Descrição</label><textarea id="fDesc" placeholder="Ex: Cadeira elegante em branco e dourado"></textarea></div>
+    <div class="field"><label>Categoria</label>
+      <select id="fCat">
+        <option>Mobiliário</option><option>Têxteis</option><option>Decoração</option>
+        <option>Louças & Cristais</option><option>Estruturas</option><option>Iluminação</option><option>Outro</option>
+      </select>
+    </div>
+    <div class="field"><label>Ícone</label>
+      <select id="fIcon">
+        <option value="ti-armchair">Cadeira / Poltrona</option>
+        <option value="ti-tools-kitchen-2">Toalha / Cozinha</option>
+        <option value="ti-confetti">Decoração / Balão</option>
+        <option value="ti-glass-full">Taça / Copo</option>
+        <option value="ti-building">Tenda / Estrutura</option>
+        <option value="ti-bulb">Iluminação</option>
+        <option value="ti-flower">Arranjo / Flores</option>
+        <option value="ti-table">Mesa</option>
+        <option value="ti-star">Destaque</option>
+        <option value="ti-gift">Presente / Kit</option>
+      </select>
+    </div>
+    <button class="add-btn" onclick="addItem()"><i class="ti ti-plus"></i> Adicionar ao catálogo</button>
   </div>
-  <button class="add-btn" onclick="addItem()"><i class="ti ti-plus"></i> Adicionar ao catálogo</button>
 </div>
+
 <div class="toast" id="toast"></div>
 <input type="file" id="imgInput" accept="image/*"/>
 
 <script>
 const STORAGE_KEY = 'celebrar_items_v2';
+const ADMIN_PWD = 'Neoqeav2020!';
+const SESSION_KEY = 'celebrar_admin_auth';
 const WA_URL = 'https://wa.me/5586988145189?text=Olá!%20Tenho%20interesse%20no%20item%3A%20';
+
 const defaultItems = [
   {id:1,name:'Mesas & Cadeiras',desc:'Mesas redondas, retangulares e cadeiras diversas para todos os formatos de evento',cat:'Mobiliário',icon:'ti-armchair',img:''},
   {id:2,name:'Toalhas & Tecidos',desc:'Toalhas de mesa, caminhos e tecidos em diversas cores e tamanhos',cat:'Têxteis',icon:'ti-tools-kitchen-2',img:''},
@@ -237,6 +247,7 @@ const defaultItems = [
 let items = [];
 let currentImgItemId = null;
 let currentModalId = null;
+let isAdmin = false;
 
 function loadItems(){
   try{const s=localStorage.getItem(STORAGE_KEY);items=s?JSON.parse(s):defaultItems;}
@@ -253,15 +264,15 @@ function render(){
   const list = document.getElementById('adminList');
 
   if(!items.length){
-    grid.innerHTML='<div class="empty-state">Nenhum item cadastrado. Use o painel Admin para adicionar.</div>';
+    grid.innerHTML='<div class="empty-state">Nenhum item cadastrado.</div>';
   } else {
     grid.innerHTML = items.map(i=>`
       <div class="catalog-item" onclick="openModal(${i.id})">
         ${i.img
           ? `<img class="item-img" src="${i.img}" alt="${i.name}"/>`
-          : `<div class="item-img-placeholder" onclick="event.stopPropagation();triggerImgUpload(${i.id})">
-               <i class="ti ti-camera-plus"></i>
-               <span>Adicionar foto</span>
+          : `<div class="item-img-placeholder" onclick="${isAdmin ? `event.stopPropagation();triggerImgUpload(${i.id})` : 'event.stopPropagation()'}">
+               <i class="ti ${isAdmin ? 'ti-camera-plus' : 'ti-photo'}"></i>
+               ${isAdmin ? '<span>Adicionar foto</span>' : ''}
              </div>`}
         <div class="item-body">
           <div class="item-icon"><i class="ti ${i.icon}"></i></div>
@@ -272,41 +283,74 @@ function render(){
       </div>`).join('');
   }
 
-  list.innerHTML = items.length
-    ? items.map(i=>`
-        <div class="admin-row">
-          <span class="admin-row-name">${i.name}</span>
-          <span class="admin-row-cat">${i.cat}</span>
-          <button class="admin-del" onclick="removeItem(${i.id})" title="Remover">×</button>
-        </div>`).join('')
-    : '<p style="font-size:12px;color:#bbb;padding:8px 0;font-style:italic">Nenhum item cadastrado.</p>';
+  if(list){
+    list.innerHTML = items.length
+      ? items.map(i=>`
+          <div class="admin-row">
+            <span class="admin-row-name">${i.name}</span>
+            <span class="admin-row-cat">${i.cat}</span>
+            <button class="admin-del" onclick="removeItem(${i.id})">×</button>
+          </div>`).join('')
+      : '<p style="font-size:12px;color:#bbb;padding:8px 0;font-style:italic">Nenhum item cadastrado.</p>';
+  }
+}
+
+function doLogin(){
+  const pwd = document.getElementById('pwdInput').value;
+  const err = document.getElementById('loginError');
+  if(pwd === ADMIN_PWD){
+    isAdmin = true;
+    sessionStorage.setItem(SESSION_KEY,'1');
+    document.getElementById('loginArea').style.display='none';
+    document.getElementById('adminContent').style.display='block';
+    err.style.display='none';
+    render();
+  } else {
+    err.style.display='block';
+    document.getElementById('pwdInput').value='';
+  }
+}
+
+function doLogout(){
+  isAdmin = false;
+  sessionStorage.removeItem(SESSION_KEY);
+  document.getElementById('loginArea').style.display='block';
+  document.getElementById('adminContent').style.display='none';
+  document.getElementById('pwdInput').value='';
+  document.getElementById('adminPanel').classList.remove('open');
+  render();
+}
+
+function checkSession(){
+  if(sessionStorage.getItem(SESSION_KEY)==='1'){
+    isAdmin=true;
+    document.getElementById('loginArea').style.display='none';
+    document.getElementById('adminContent').style.display='block';
+  }
 }
 
 function openModal(id){
-  const item = items.find(i=>i.id===id);
+  const item=items.find(i=>i.id===id);
   if(!item) return;
-  currentModalId = id;
-  document.getElementById('modalCat').textContent = item.cat;
-  document.getElementById('modalName').textContent = item.name;
-  document.getElementById('modalDesc').textContent = item.desc || 'Entre em contato para mais informações.';
-  document.getElementById('modalWa').href = WA_URL + encodeURIComponent(item.name);
-
-  const imgArea = document.getElementById('modalImgArea');
+  currentModalId=id;
+  document.getElementById('modalCat').textContent=item.cat;
+  document.getElementById('modalName').textContent=item.name;
+  document.getElementById('modalDesc').textContent=item.desc||'Entre em contato para mais informações.';
+  document.getElementById('modalWa').href=WA_URL+encodeURIComponent(item.name);
+  const imgArea=document.getElementById('modalImgArea');
   if(item.img){
-    imgArea.innerHTML = `<img class="modal-img" src="${item.img}" alt="${item.name}"/>`;
+    imgArea.innerHTML=`<img class="modal-img" src="${item.img}" alt="${item.name}"/>`;
+  } else if(isAdmin){
+    imgArea.innerHTML=`<div class="modal-img-empty" onclick="triggerImgUpload(${id})"><i class="ti ti-camera-plus"></i><span>Clique para adicionar foto</span></div>`;
   } else {
-    imgArea.innerHTML = `
-      <div class="modal-img-empty" onclick="triggerImgUpload(${id})">
-        <i class="ti ti-camera-plus"></i>
-        <span>Clique para adicionar foto</span>
-      </div>`;
+    imgArea.innerHTML=`<div class="modal-img-empty" style="cursor:default"><i class="ti ti-photo"></i></div>`;
   }
   document.getElementById('modalOverlay').classList.add('open');
 }
 
 function closeModal(){
   document.getElementById('modalOverlay').classList.remove('open');
-  currentModalId = null;
+  currentModalId=null;
 }
 
 function closeModalOutside(e){
@@ -314,20 +358,19 @@ function closeModalOutside(e){
 }
 
 function triggerImgUpload(id){
-  currentImgItemId = id;
+  currentImgItemId=id;
   document.getElementById('imgInput').click();
 }
 
-document.getElementById('imgInput').addEventListener('change', function(){
-  const file = this.files[0];
-  if(!file || !currentImgItemId) return;
-  const reader = new FileReader();
-  reader.onload = function(e){
-    const idx = items.findIndex(i=>i.id===currentImgItemId);
+document.getElementById('imgInput').addEventListener('change',function(){
+  const file=this.files[0];
+  if(!file||!currentImgItemId||!isAdmin) return;
+  const reader=new FileReader();
+  reader.onload=function(e){
+    const idx=items.findIndex(i=>i.id===currentImgItemId);
     if(idx>-1){
-      items[idx].img = e.target.result;
-      saveItems();
-      render();
+      items[idx].img=e.target.result;
+      saveItems();render();
       if(currentModalId===currentImgItemId) openModal(currentImgItemId);
       showToast('Foto adicionada ✓');
     }
@@ -337,6 +380,7 @@ document.getElementById('imgInput').addEventListener('change', function(){
 });
 
 function addItem(){
+  if(!isAdmin) return;
   const name=document.getElementById('fName').value.trim();
   const desc=document.getElementById('fDesc').value.trim();
   const cat=document.getElementById('fCat').value;
@@ -350,6 +394,7 @@ function addItem(){
 }
 
 function removeItem(id){
+  if(!isAdmin) return;
   items=items.filter(i=>i.id!==id);
   saveItems();render();
   showToast('Item removido');
@@ -365,6 +410,7 @@ function showToast(msg){
   setTimeout(()=>t.classList.remove('show'),2200);
 }
 
+checkSession();
 loadItems();
 </script>
 </body>
