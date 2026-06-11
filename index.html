@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Catálogo · Celebrar Eventos</title>
+<meta name="description" content="Locação de materiais para eventos em Teresina/PI. Mesas, cadeiras, decoração, utensílios e muito mais."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Jost', sans-serif;
+    background: #f5f3ee;
+    color: #1a2540;
+    min-height: 100vh;
+  }
+
+  .page {
+    max-width: 700px;
+    margin: 0 auto;
+    background: #fff;
+    box-shadow: 0 0 60px rgba(0,0,0,0.08);
+  }
+
+  /* HERO */
+  .hero {
+    background: #1a2540;
+    padding: 3.5rem 2.5rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #b8932a, #e8c96a, #b8932a);
+  }
+  .hero-tag {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #b8932a;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+  }
+  .hero-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 1.5px;
+    margin-bottom: 2rem;
+  }
+  .hero-divider {
+    width: 48px;
+    height: 1px;
+    background: #b8932a;
+    margin: 0 auto 2rem;
+  }
+  .hero-badges {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .badge {
+    font-size: 10px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 1.5px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .badge::before {
+    content: '';
+    width: 4px; height: 4px;
+    background: #b8932a;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* SECTION */
+  .sec {
+    padding: 2.5rem 2.5rem 2rem;
+  }
+  .sec-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #b8932a;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .sec-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: #1a2540;
+    margin-bottom: 0.75rem;
+  }
+  .gold-line {
+    width: 32px;
+    height: 1px;
+    background: #b8932a;
+    margin-bottom: 1.75rem;
+  }
+
+  /* GRID */
+  .items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1px;
+    background: #e8e4d9;
+  }
+  .catalog-item {
+    background: #fff;
+    padding: 1.5rem 1.25rem;
+    transition: background 0.15s;
+  }
+  .catalog-item:hover { background: #faf8f3; }
+  .item-icon {
+    font-size: 22px;
+    color: #b8932a;
+    margin-bottom: 0.75rem;
+  }
+  .item-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a2540;
+    margin-bottom: 4px;
+  }
+  .item-desc {
+    font-size: 12px;
+    color: #999;
+    line-height: 1.55;
+  }
+  .item-cat {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    color: #b8932a;
+    background: #faf6ee;
+    padding: 3px 8px;
+    border: 0.5px solid #e8c96a;
+    text-transform: uppercase;
+  }
+  .empty-state {
+    background: #faf8f4;
+    padding: 3rem;
+    text-align: center;
+    font-size: 13px;
+    color: #bbb;
+    font-style: italic;
+    grid-column: 1 / -1;
+  }
+
+  /* SEPARATOR */
+  .sep {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .sep-line { flex: 1; height: 0.5px; background: #ece9e0; }
+  .sep-icon { color: #b8932a; font-size: 14px; }
+
+  /* QUOTE */
+  .quote-block {
+    background: #f8f6f0;
+    padding: 2rem 2.5rem;
+    margin: 0 2.5rem 2rem;
+    border-left: 2px solid #b8932a;
+  }
+  .quote-block p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 300;
+    color: #1a2540;
+    line-height: 1.65;
+    font-style: italic;
+  }
+
+  /* STATS */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: #e8e4d9;
+    margin: 0 2.5rem 2rem;
+  }
+  .stat { background: #fff; padding: 1.25rem 1rem; text-align: center; }
+  .stat-n {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 300;
+    color: #1a2540;
+  }
+  .stat-l {
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #aaa;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* CTA */
+  .cta-block {
+    background: #1a2540;
+    padding: 2.5rem;
+    text-align: center;
+  }
+  .cta-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 300;
+    color: #fff;
+    margin-bottom: 0.4rem;
+  }
+  .cta-sub {
+    font-size: 12px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+  }
+  .cta-btn {
+    display: inline-block;
+    padding: 13px 36px;
+    background: transparent;
+    border: 1px solid #b8932a;
+    color: #b8932a;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .cta-btn:hover { background: #b8932a; color: #fff; }
+
+  /* FOOTER */
+  .footer {
+    padding: 1.5rem 2.5rem;
+    border-top: 0.5px solid #ece9e0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: #1a2540;
+  }
+  .footer-info { font-size: 11px; color: #bbb; letter-spacing: 0.5px; }
+
+  /* ADMIN TOGGLE */
+  .admin-toggle {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #1a2540;
+    color: #b8932a;
+    border: 1px solid #b8932a;
+    padding: 11px 18px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    font-family: 'Jost', sans-serif;
+    cursor: pointer;
+    text-transform: uppercase;
+    z-index: 200;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .admin-toggle:hover { background: #b8932a; color: #fff; }
+
+  /* ADMIN PANEL */
+  .admin-panel {
+    display: none;
+    position: fixed;
+    bottom: 76px;
+    right: 24px;
+    width: 340px;
+    background: #fff;
+    border: 0.5px solid #e8e4d9;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.13);
+    z-index: 199;
+    padding: 1.5rem;
+    max-height: 75vh;
+    overflow-y: auto;
+  }
+  .admin-panel.open { display: block; }
+  .admin-panel-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: #1a2540;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 0.5px solid #ece9e0;
+  }
+  .admin-list { margin-bottom: 1.25rem; }
+  .admin-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 0.5px solid #f5f2ec;
+    font-size: 12px;
+    color: #444;
+    gap: 8px;
+  }
+  .admin-row-name { font-weight: 500; flex: 1; }
+  .admin-row-cat {
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: #b8932a;
+    background: #faf6ee;
+    padding: 2px 7px;
+    border: 0.5px solid #e8c96a;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .admin-del {
+    background: none;
+    border: none;
+    color: #ddd;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 0 2px;
+    transition: color 0.15s;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .admin-del:hover { color: #c0392b; }
+  .form-section-label {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    color: #b8932a;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 0.5px solid #ece9e0;
+  }
+  .field { margin-bottom: 0.65rem; }
+  .field label {
+    display: block;
+    font-size: 10px;
+    color: #aaa;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    padding: 9px 11px;
+    border: 0.5px solid #ddd;
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    color: #1a2540;
+    background: #fff;
+    outline: none;
+    transition: border-color 0.15s;
+    border-radius: 0;
+    -webkit-appearance: none;
+  }
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus { border-color: #b8932a; }
+  .field textarea { resize: vertical; min-height: 64px; }
+  .add-btn {
+    width: 100%;
+    padding: 11px;
+    background: #1a2540;
+    color: #b8932a;
+    border: none;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+  }
+  .add-btn:hover { background: #b8932a; color: #fff; }
+  .toast {
+    position: fixed;
+    bottom: 140px;
+    right: 24px;
+    background: #1a2540;
+    color: #b8932a;
+    padding: 10px 18px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    z-index: 300;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+  .toast.show { opacity: 1; }
+
+  @media (max-width: 600px) {
+    .hero { padding: 2.5rem 1.5rem 2rem; }
+    .hero-title { font-size: 32px; }
+    .sec { padding: 2rem 1.5rem 1.5rem; }
+    .quote-block { margin: 0 1.5rem 1.5rem; padding: 1.5rem; }
+    .stats { margin: 0 1.5rem 1.5rem; }
+    .footer { padding: 1.25rem 1.5rem; }
+    .admin-panel { width: calc(100vw - 32px); right: 16px; }
+    .admin-toggle { right: 16px; bottom: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="hero">
+    <p class="hero-tag">Locação de Materiais para Eventos</p>
+    <h1 class="hero-title">Celebrar Eventos</h1>
+    <p class="hero-sub">Teresina, PI &nbsp;·&nbsp; (86) 8814-5189</p>
+    <div class="hero-divider"></div>
+    <div class="hero-badges">
+      <span class="badge">Festas & Eventos Sociais</span>
+      <span class="badge">Eventos Corporativos</span>
+      <span class="badge">Entrega & Retirada</span>
+    </div>
+  </div>
+
+  <div class="sec">
+    <p class="sec-label">Nosso portfólio</p>
+    <h2 class="sec-title">Materiais disponíveis para locação</h2>
+    <div class="gold-line"></div>
+    <div class="items-grid" id="itemsGrid"></div>
+  </div>
+
+  <div class="sep">
+    <div class="sep-line"></div>
+    <i class="ti ti-diamond sep-icon" aria-hidden="true"></i>
+    <div class="sep-line"></div>
+  </div>
+
+  <div class="quote-block">
+    <p>"Transformamos cada detalhe em memória. Do mobiliário à decoração, cuidamos de tudo para que você viva cada momento do seu evento com elegância e tranquilidade."</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <p class="stat-n">+200</p>
+      <p class="stat-l">Eventos</p>
+    </div>
+    <div class="stat">
+      <p class="stat-n">48h</p>
+      <p class="stat-l">Antecedência</p>
+    </div>
+    <div class="stat">
+      <p class="stat-n">100%</p>
+      <p class="stat-l">Satisfação</p>
+    </div>
+  </div>
+
+  <div class="cta-block">
+    <p class="cta-title">Pronta para o seu evento inesquecível?</p>
+    <p class="cta-sub">Solicite um orçamento personalizado sem compromisso</p>
+    <a class="cta-btn" href="https://wa.me/5586988145189?text=Olá!%20Vim%20pelo%20catálogo%20e%20gostaria%20de%20solicitar%20um%20orçamento." target="_blank">
+      Solicitar orçamento via WhatsApp
+    </a>
+  </div>
+
+  <div class="footer">
+    <span class="footer-logo">Celebrar Eventos</span>
+    <span class="footer-info">📍 Teresina, PI &nbsp;·&nbsp; (86) 8814-5189</span>
+  </div>
+</div>
+
+<!-- ADMIN -->
+<button class="admin-toggle" onclick="toggleAdmin()">
+  <i class="ti ti-settings" aria-hidden="true"></i> Admin
+</button>
+
+<div class="admin-panel" id="adminPanel">
+  <p class="admin-panel-title">Gerenciar Catálogo</p>
+  <div class="admin-list" id="adminList"></div>
+  <p class="form-section-label">Adicionar item</p>
+  <div class="field">
+    <label>Nome do item</label>
+    <input id="fName" placeholder="Ex: Cadeira Tiffany"/>
+  </div>
+  <div class="field">
+    <label>Descrição</label>
+    <textarea id="fDesc" placeholder="Ex: Cadeira elegante disponível em branco e dourado"></textarea>
+  </div>
+  <div class="field">
+    <label>Categoria</label>
+    <select id="fCat">
+      <option>Mobiliário</option>
+      <option>Têxteis</option>
+      <option>Decoração</option>
+      <option>Louças &amp; Cristais</option>
+      <option>Estruturas</option>
+      <option>Iluminação</option>
+      <option>Outro</option>
+    </select>
+  </div>
+  <div class="field">
+    <label>Ícone</label>
+    <select id="fIcon">
+      <option value="ti-armchair">Cadeira / Poltrona</option>
+      <option value="ti-tools-kitchen-2">Toalha / Cozinha</option>
+      <option value="ti-confetti">Decoração / Balão</option>
+      <option value="ti-glass-full">Taça / Copo</option>
+      <option value="ti-building">Tenda / Estrutura</option>
+      <option value="ti-bulb">Iluminação</option>
+      <option value="ti-flower">Arranjo / Flores</option>
+      <option value="ti-table">Mesa</option>
+      <option value="ti-star">Destaque</option>
+      <option value="ti-gift">Presente / Kit</option>
+    </select>
+  </div>
+  <button class="add-btn" onclick="addItem()">
+    <i class="ti ti-plus" aria-hidden="true"></i> Adicionar ao catálogo
+  </button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const STORAGE_KEY = 'celebrar_items_v1';
+const defaultItems = [
+  { id: 1, name: 'Mesas & Cadeiras', desc: 'Mesas redondas, retangulares e cadeiras diversas para todos os formatos de evento', cat: 'Mobiliário', icon: 'ti-armchair' },
+  { id: 2, name: 'Toalhas & Tecidos', desc: 'Toalhas de mesa, caminhos e tecidos em diversas cores e tamanhos', cat: 'Têxteis', icon: 'ti-tools-kitchen-2' },
+  { id: 3, name: 'Decoração', desc: 'Balões, painéis, arranjos e elementos decorativos para personalizar seu evento', cat: 'Decoração', icon: 'ti-confetti' },
+  { id: 4, name: 'Utensílios', desc: 'Taças, pratos, talheres e louças para eventos sofisticados e corporativos', cat: 'Louças & Cristais', icon: 'ti-glass-full' }
+];
+
+let items = [];
+
+function loadItems() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    items = saved ? JSON.parse(saved) : defaultItems;
+  } catch(e) {
+    items = defaultItems;
+  }
+  render();
+}
+
+function saveItems() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(items)); } catch(e) {}
+}
+
+function render() {
+  const grid = document.getElementById('itemsGrid');
+  const list = document.getElementById('adminList');
+
+  if (!items.length) {
+    grid.innerHTML = '<div class="empty-state">Nenhum item cadastrado ainda.<br>Use o painel Admin para adicionar.</div>';
+  } else {
+    grid.innerHTML = items.map(i => `
+      <div class="catalog-item">
+        <div class="item-icon"><i class="ti ${i.icon}" aria-hidden="true"></i></div>
+        <p class="item-name">${i.name}</p>
+        <p class="item-desc">${i.desc}</p>
+        <span class="item-cat">${i.cat}</span>
+      </div>`).join('');
+  }
+
+  list.innerHTML = items.length
+    ? items.map(i => `
+        <div class="admin-row">
+          <span class="admin-row-name">${i.name}</span>
+          <span class="admin-row-cat">${i.cat}</span>
+          <button class="admin-del" onclick="removeItem(${i.id})" title="Remover item">×</button>
+        </div>`).join('')
+    : '<p style="font-size:12px;color:#bbb;padding:8px 0;font-style:italic">Nenhum item cadastrado.</p>';
+}
+
+function addItem() {
+  const name = document.getElementById('fName').value.trim();
+  const desc = document.getElementById('fDesc').value.trim();
+  const cat  = document.getElementById('fCat').value;
+  const icon = document.getElementById('fIcon').value;
+  if (!name) { showToast('Informe o nome do item'); return; }
+  items.push({ id: Date.now(), name, desc, cat, icon });
+  saveItems();
+  render();
+  document.getElementById('fName').value = '';
+  document.getElementById('fDesc').value = '';
+  showToast('Item adicionado ✓');
+}
+
+function removeItem(id) {
+  items = items.filter(i => i.id !== id);
+  saveItems();
+  render();
+  showToast('Item removido');
+}
+
+function toggleAdmin() {
+  document.getElementById('adminPanel').classList.toggle('open');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+loadItems();
+</script>
+</body>
+</html>
